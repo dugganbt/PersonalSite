@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 import os
 from dotenv import load_dotenv
 
-load_dotenv("PersonalSite/.env")
+# load_dotenv("PersonalSite/.env")
 
 # initialize flask application
 app = Flask(__name__)
