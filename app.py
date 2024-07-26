@@ -3,7 +3,6 @@ from flask import Flask, render_template
 
 # initialize flask application
 app = Flask(__name__)
-server = app.server
 
 # home screen route
 @app.route("/")
