@@ -4,6 +4,8 @@ from flask import Flask, render_template
 # initialize flask application
 app = Flask(__name__)
 
+server = app
+
 # home screen route
 @app.route("/")
 def run_website():
