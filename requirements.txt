@@ -2,5 +2,4 @@ flask
 flask_mail
 pandas
 gunicorn
-dotenv
-os
+python-dotenv
