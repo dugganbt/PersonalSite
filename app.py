@@ -40,7 +40,7 @@ def send_email():
     if not name or not email or not message:
         flash("All fields are required.", 'error')
         return redirect(url_for("run_website"))
-
+    
     msg = Message(
         subject="New Contact Form Submission",
         recipients=[os.getenv("recipient")],  
@@ -48,12 +48,12 @@ def send_email():
     )
     try:
         mail.send(msg)
-        flash("Message sent successfully!")
+        flash("Message sent successfully!", 'success')
+        return redirect(url_for("run_website"))
     except Exception as e:
-        print(f"Exception{str(e)}, no message sent")
+        print(f"Exception {str(e)}, no message sent")
         flash(f"An error occurred: {str(e)}", 'error')
-
-    return redirect(url_for("run_website"))
+        return redirect(url_for("run_website"))
 
 
 if __name__ == "__main__":

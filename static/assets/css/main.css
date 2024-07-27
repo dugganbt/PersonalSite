@@ -1660,19 +1660,30 @@ input, select, textarea {
 			opacity: 0;
 		}
 
-/* flash-messages */
-	.flash-messages {
-		list-style-type: none;
-		padding: 0;
-		margin: 20px 0;
-		color: red;  /* Change this to suit your design */
-	}
-	
-	.flash-messages li {
-		background-color: #f8d7da;
-		color: #721c24;
-		padding: 10px;
-		border: 1px solid #f5c6cb;
-		border-radius: 5px;
-		margin-bottom: 10px;
-	}
+/* Flash messages styles */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.flash-messages li {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.flash-messages .success {
+    background-color: #4CAF50;
+}
+
+.flash-messages .error {
+    background-color: #f44336;
+}

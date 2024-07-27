@@ -17,15 +17,15 @@
 
 
 		<!-- Flash Messages -->
-		{% with messages = get_flashed_messages() %}
+		{% with messages = get_flashed_messages(with_categories=true) %}
 			{% if messages %}
-				<ul class="flash-messages">
-					{% for message in messages %}
-						<li>{{ message }} <button class="close-btn" onclick="this.parentElement.style.display='none';">x</button></li>
+				<ul id="flash-messages" class="flash-messages">
+					{% for category, message in messages %}
+						<li class="{{ category }}">{{ message }}</li>
 					{% endfor %}
 				</ul>
 			{% endif %}
-		{% endwith %}
+    	{% endwith %}
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -402,5 +402,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="static/assets/js/breakpoints.min.js"></script>
 			<script src="static/assets/js/util.js"></script>
 			<script src="static/assets/js/main.js"></script>
+
+
+			<!-- Flash message auto-hide script -->
+			<script>
+				document.addEventListener('DOMContentLoaded', (event) => {
+					setTimeout(() => {
+						const flashMessages = document.getElementById('flash-messages');
+						if (flashMessages) {
+							flashMessages.style.transition = 'opacity 0.5s';
+							flashMessages.style.opacity = '0';
+							setTimeout(() => { flashMessages.remove(); }, 500); // Allow the fade-out transition to complete before removing the element
+						}
+					}, 10000); // 10 seconds
+				});
+			</script>
 
 	</body></html>
