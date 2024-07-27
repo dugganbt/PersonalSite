@@ -51,6 +51,7 @@ def send_email():
         flash("Message sent successfully!")
     except Exception as e:
         print(f"Exception{str(e)}, no message sent")
+        print(os.getenv('server'))
         flash(f"An error occurred: {str(e)}", 'error')
 
     return redirect(url_for("run_website"))
