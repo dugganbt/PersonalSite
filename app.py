@@ -49,11 +49,13 @@ def send_email():
     try:
         mail.send(msg)
         flash("Message sent successfully!")
+        raise(Exception)
     except Exception as e:
         print(f"Exception{str(e)}, no message sent")
         print(os.getenv('server'))
-        print(str_to_bool(os.getenv('ssl_setting'), type(str_to_bool(os.getenv('ssl_setting')))))
+        print(type(str_to_bool(os.getenv('ssl_setting'))))
         print(int(os.getenv('port')), type(int(os.getenv('port'))))
+        print(os.getenv('password'))
         flash(f"An error occurred: {str(e)}", 'error')
 
     return redirect(url_for("run_website"))
