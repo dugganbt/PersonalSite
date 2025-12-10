@@ -7,4 +7,4 @@ if str(project_root) not in sys.path:
     sys.path.append(str(project_root))
 
 # Vercel expects a callable named `handler`.
-from app import app as handler
+from app import app
