@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv("PersonalSite/.env")
+# Load environment variables for local development; Vercel injects env vars at runtime.
+env_path = Path(__file__).resolve().parent / ".env"
+load_dotenv(env_path)
 
 # initialize flask application
 app = Flask(__name__)
